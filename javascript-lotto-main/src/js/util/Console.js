@@ -19,5 +19,5 @@ const Console = {
     }
 }
 
-module.exports = Console;
+export default Console;
 
