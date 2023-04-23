@@ -1,9 +1,10 @@
 import InputValidator from "../Validator/InputValidator";
 import InputView from "../View/InputView";
-
+import Ticket from "../Model/Ticket"
 const Game = async () => {
-  const amountOfBuy = await InputView.inputBuyAmount()
-  InputValidator.validatorHandler('1,000원 단위로 주문이 되지 않았습니다.',amountOfBuy)
+  const amountOfBuy = await Ticket.inputMoney()
+  console.log('받아오기 성공')
+  console.log(amountOfBuy)
   const winningNumber = [1, 2, 3, 4, 5, 6];
   const bonusNumber = [7];
 

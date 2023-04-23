@@ -17,10 +17,26 @@ const InputValidator = {
                     if(!this.checkNumber(input)){
                         throw new Error('숫자가 아닌 값이 입력되었습니다.')
                     }
+                return true
             }
         } catch (err) {
             Console.print(err.message)
+            return false
         }
+    },
+    validateAmountMoney(input){
+        if(!this.validatorHandler('숫자가 아닌 값이 입력되었습니다.', input)){
+            return false
+        }
+        if(!this.validatorHandler('1,000원 미만의 금액이 입력되었습니다.', input)){
+            return false
+        }
+        if(!this.validatorHandler('1,000원 단위로 주문이 되지 않았습니다.', input)){
+            return false
+        }
+
+        return true;
+
     },
     checkNumber(input){
         return /^[1-9]\d*$/g.test(input)
