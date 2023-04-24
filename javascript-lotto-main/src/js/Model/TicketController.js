@@ -12,16 +12,18 @@ class TicketController {
         }
         return this.inputMoney()
     }
+
+    getTickets(money){
+        const numberOfTickets = this.moneyToTicket(money)
+        
+    }
+
+    moneyToTicket(money){
+        return money/1000
+    }
+
 }
 
-// const Ticket = {  
-//     async inputMoney(){
-//         const amount = await InputView.inputBuyAmount()
-//         if(InputValidator.validateAmountMoney(amount)){
-//             return amount/1000
-//         }
-//         return this.inputMoney()
-//     }
-// }
+
 
 export default TicketController
