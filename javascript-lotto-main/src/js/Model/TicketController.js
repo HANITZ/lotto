@@ -30,6 +30,11 @@ class TicketController {
   moneyToTicket(money) {
     return money / constants.lotto.pricePerLotto;
   }
+  printTickets(tickets){
+    tickets.forEach((ticket)=>{
+        Console.print(ticket.getLotto())
+    })
+  }
 }
 
 export default TicketController;

@@ -1,14 +1,13 @@
-import InputValidator from "../Validator/InputValidator";
-import InputView from "../View/InputView";
 import TicketController from "../Model/TicketController";
-import RandomNumberGenerator from "../util/RandomNumberGenerator";
 import Lotto from "../Model/Lotto"
+
 const Game = async () => {
   const ticketController = new TicketController();
 
   const amountOfBuy = await ticketController.inputMoney();
   const tickets = ticketController.getTickets(amountOfBuy);
-  console.log(tickets)
+  ticketController.printTickets(tickets)
+
   console.log("받아오기 성공");
   console.log(amountOfBuy);
   const winningNumber = [1, 2, 3, 4, 5, 6];

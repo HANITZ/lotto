@@ -17,10 +17,14 @@ class Lotto{
                 lotto.push(randomNum)
             }
         }
+        this.sortAscending(lotto)
         return lotto
     }
     getLotto(){
         return this.#lotto
+    }
+    sortAscending(arr){
+        arr.sort((a,b)=>a-b)
     }
 }
 
