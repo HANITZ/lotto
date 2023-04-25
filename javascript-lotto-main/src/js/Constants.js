@@ -3,6 +3,7 @@ const constants = {
         min: 1,
         max: 45,
         numOf: 6,
+        pricePerLotto: 1000,
     },
 }
 

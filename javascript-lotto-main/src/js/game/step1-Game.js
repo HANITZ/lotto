@@ -8,7 +8,7 @@ const Game = async () => {
 
   const amountOfBuy = await ticketController.inputMoney();
   const tickets = ticketController.getTickets(amountOfBuy);
-
+  console.log(tickets)
   console.log("받아오기 성공");
   console.log(amountOfBuy);
   const winningNumber = [1, 2, 3, 4, 5, 6];

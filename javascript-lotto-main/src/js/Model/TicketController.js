@@ -1,29 +1,35 @@
+import constants from "../Constants";
 import InputValidator from "../Validator/InputValidator";
 import InputView from "../View/InputView";
+import Console from "../util/Console";
+import Lotto from "./Lotto";
 
 class TicketController {
-    #tickets
-    constructor(){}
-    
-    async inputMoney(){
-        const amount = await InputView.inputBuyAmount()
-        if(InputValidator.validateAmountMoney(amount)){
-            return amount
-        }
-        return this.inputMoney()
-    }
+  #tickets;
+  constructor() {
+    this.#tickets = new Array();
+  }
 
-    getTickets(money){
-        const numberOfTickets = this.moneyToTicket(money)
-        
+  async inputMoney() {
+    const amount = await InputView.inputBuyAmount();
+    if (InputValidator.validateAmountMoney(amount)) {
+      return amount;
     }
+    return this.inputMoney();
+  }
 
-    moneyToTicket(money){
-        return money/1000
+  getTickets(money) {
+    let numberOfTickets = this.moneyToTicket(money);
+    while (numberOfTickets > 0) {
+      this.#tickets.push(new Lotto());
+      numberOfTickets--;
     }
+    return this.#tickets;
+  }
 
+  moneyToTicket(money) {
+    return money / constants.lotto.pricePerLotto;
+  }
 }
 
-
-
-export default TicketController
+export default TicketController;
