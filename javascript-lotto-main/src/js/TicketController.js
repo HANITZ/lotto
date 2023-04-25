@@ -1,8 +1,8 @@
-import constants from "../Constants";
-import InputValidator from "../Validator/InputValidator";
-import InputView from "../View/InputView";
-import Console from "../util/Console";
-import Lotto from "./Lotto";
+import constants from "./Constants";
+import InputValidator from "./Validator/InputValidator";
+import InputView from "./View/InputView";
+import Console from "./util/Console";
+import Lotto from "./Model/Lotto";
 
 class TicketController {
   #tickets;

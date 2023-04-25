@@ -1,4 +1,4 @@
-import TicketController from "../Model/TicketController";
+import TicketController from "../TicketController";
 import Lotto from "../Model/Lotto"
 
 const Game = async () => {
