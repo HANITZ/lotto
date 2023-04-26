@@ -11,10 +11,7 @@ const Game = async () => {
   const winningNumber = await lottoMachine.getWinningNumbers()
   const bonusNumber = await lottoMachine.getBonusNumber();
   const drawedTickets = lottoMachine.drawLottos(tickets)
-
-
-  console.log("받아오기 성공");
-  console.log(amountOfBuy);
+  lottoMachine.printWinnedLottos(drawedTickets)
 
   
 
