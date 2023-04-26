@@ -9,6 +9,7 @@ const constants = {
     regex: {
         ISALLNUMBER: /^[0-9]*$/,
         ISALLNUMBERANDREST: /^[0-9|,]*$/g,
+        ISYESORNO: /^[y|n]$/,
 
     },
     winnedLotto: {

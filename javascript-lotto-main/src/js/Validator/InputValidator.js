@@ -58,7 +58,7 @@ const InputValidator = {
         }
     },
     checkYesOrNo(input){
-        if(/^[y|n]$/.test(input)){
+        if(constants.regex.ISYESORNO.test(input)){
             return true
         }
         return false
