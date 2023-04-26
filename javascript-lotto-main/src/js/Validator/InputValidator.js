@@ -36,9 +36,9 @@ const InputValidator = {
                         throw new Error(msg)
                     }
                     return true
-                case '당첨번호가 부족합니다.':
+                case '당첨 번호 수가 일치하지 않습니다.':
                     if(!this.checkInputNumberOfWin(input)){
-                        throw new Error('당첨번호가 부족합니다.')
+                        throw new Error('당첨 번호 수가 일치하지 않습니다.')
                     }
                     return true
                 case '당첨번호와 중복됩니다.':
@@ -71,7 +71,7 @@ const InputValidator = {
         if(!this.validatorHandler('숫자와 (,)쉼표가 아닌 값이 입력되었습니다.', input)){
             return false
         }
-        if(!this.validatorHandler('당첨번호가 부족합니다.', input)){
+        if(!this.validatorHandler('당첨 번호 수가 일치하지 않습니다.', input)){
             return false
         }
         if(!this.validatorHandler('범위를 벗어난 숫자가 입력되었습니다.', input)){
