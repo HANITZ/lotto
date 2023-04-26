@@ -12,7 +12,7 @@ class TicketController {
 
   async inputMoney() {
     const amount = await InputView.inputBuyAmount();
-    if (InputValidator.validateAmountMoney(amount)) {
+    if (InputValidator.validateInputAmountMoney(amount)) {
       return amount;
     }
     return this.inputMoney();
@@ -28,7 +28,7 @@ class TicketController {
   }
 
   moneyToTicket(money) {
-    return money / constants.lotto.pricePerLotto;
+    return money / constants.lotto.PRICEPERLOTTO;
   }
   printTickets(tickets){
     tickets.forEach((ticket)=>{

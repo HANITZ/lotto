@@ -11,8 +11,8 @@ class Lotto{
 
     makeLotto(lotto){
         let randomNum
-        while (lotto.length <constants.lotto.numOf){
-            randomNum = RandomNumberGenerator.generateRandomNumber(constants.lotto.min, constants.lotto.max)
+        while (lotto.length <constants.lotto.NUMOF){
+            randomNum = RandomNumberGenerator.generateRandomNumber(constants.lotto.MIN, constants.lotto.MAX)
             if(!lotto.includes(randomNum)){
                 lotto.push(randomNum)
             }

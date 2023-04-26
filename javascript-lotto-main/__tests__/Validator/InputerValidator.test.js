@@ -10,7 +10,15 @@ describe('InputValidator 테스트', ()=>{
             InputValidator.validatorHandler('1,000원 단위로 주문이 되지 않았습니다.', 1111)
 
         }
-        console.log(InputValidator.validatorHandler('1,000원 단위로 주문이 되지 않았습니다.', 1111))
-        expect(thousandUnit).toBe('1,000원 단위로 주문이 되지 않았습니다.')
+        // console.log(InputValidator.validatorHandler('1,000원 단위로 주문이 되지 않았습니다.', 1111))
+        expect(InputValidator.validatorHandler('1,000원 단위로 주문이 되지 않았습니다.', 1111)).toBe(false)
+    })
+
+    test('숫자와 (,)쉼표가 아닌 값이 입력되었습니다.', ()=>{
+        expect(InputValidator.validatorHandler('숫자와 (,)쉼표가 아닌 값이 입력되었습니다.', '1,2,3,4,2.,1')).toEqual(false)
+    })
+
+    test('범위를 벗어난 숫자가 입력되었습니다.', ()=> {
+        expect(InputValidator.checkInputWinNumberRange('1,2,48,2,3')).toBe(false)
     })
 })

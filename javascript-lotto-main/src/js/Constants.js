@@ -1,10 +1,16 @@
 const constants = {
     lotto: {
-        min: 1,
-        max: 45,
-        numOf: 6,
-        pricePerLotto: 1000,
+        MIN: 1,
+        MAX: 45,
+        NUMOF: 6,
+        PRICEPERLOTTO: 1000,
+        MINPRICE: 1000,
     },
+    regex: {
+        ISALLNUMBER: /^[1-9]\d*$/g,
+        ISALLNUMBERANDREST: /^[1-9|,]*$/g,
+
+    }
 }
 
 export default constants;
