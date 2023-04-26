@@ -21,4 +21,8 @@ describe('InputValidator 테스트', ()=>{
     test('범위를 벗어난 숫자가 입력되었습니다.', ()=> {
         expect(InputValidator.checkInputWinNumberRange('1,2,48,2,3')).toBe(false)
     })
+
+    test('숫자가 아닌 값이 입력되었습니다.', ()=>{
+        expect(InputValidator.checkNumber('1r')).toBe(false)
+    })
 })

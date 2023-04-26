@@ -7,8 +7,8 @@ const constants = {
         MINPRICE: 1000,
     },
     regex: {
-        ISALLNUMBER: /^[1-9]\d*$/g,
-        ISALLNUMBERANDREST: /^[1-9|,]*$/g,
+        ISALLNUMBER: /^[0-9]*$/,
+        ISALLNUMBERANDREST: /^[0-9|,]*$/g,
 
     }
 }

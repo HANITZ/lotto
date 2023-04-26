@@ -7,7 +7,11 @@ const InputView = {
 
   inputWinningNumbers(){
     return Console.readLine("당첨 번호를 입력해주세요(쉼표로 구분)\n")
-  }
+  },
+
+  inputBonusNumber(){
+    return Console.readLine("보너스 번호를 입력해주세요\n")
+  },
   
 };
 

@@ -3,7 +3,7 @@ import Console from "../util/Console"
 
 
 const InputValidator = {
-    validatorHandler(msg, input) {
+    validatorHandler(msg, input, ...args) {
         try{
             switch (msg) {
                 case '1,000원 단위로 주문이 되지 않았습니다.' :
@@ -41,13 +41,32 @@ const InputValidator = {
                         throw new Error('당첨번호가 부족합니다.')
                     }
                     return true
+                case '당첨번호와 중복됩니다.':
+                    if(this.checkInputBonusNumDuplicateWithWinNumbers(input, ...args)){
+                        throw new Error('당첨번호와 중복됩니다.')
+                    }
+                    return true
             }
         } catch (err) {
             Console.print(err.message)
             return false
         }
     },
-
+    checkInputBonusNumDuplicateWithWinNumbers(input, winningNumbers){
+        return winningNumbers.includes(Number(input))
+    },
+    validateInputBonusNumber(input, winningNumber){
+        if(!this.validatorHandler('숫자가 아닌 값이 입력되었습니다.', input)){
+            return false
+        }
+        if(!this.validatorHandler('범위를 벗어난 숫자가 입력되었습니다.', input)){
+            return false
+        }
+        if(!this.validatorHandler('당첨번호와 중복됩니다.', input, winningNumber)){
+            return false
+        }
+        return true
+    },
     validateInputWinningNumbers(input){
         if(!this.validatorHandler('숫자와 (,)쉼표가 아닌 값이 입력되었습니다.', input)){
             return false
