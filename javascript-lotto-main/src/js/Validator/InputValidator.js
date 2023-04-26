@@ -46,11 +46,28 @@ const InputValidator = {
                         throw new Error('당첨번호와 중복됩니다.')
                     }
                     return true
+                case 'y,n 으로 입력해주세요.':
+                    if(!this.checkYesOrNo(input)){
+                        throw new Error('y,n 으로 입력해주세요.')
+                    }
+                    return true
             }
         } catch (err) {
             Console.print(err.message)
             return false
         }
+    },
+    checkYesOrNo(input){
+        if(/^[y|n]$/.test(input)){
+            return true
+        }
+        return false
+    },
+    validateInputRestart(input){
+        if(!this.validatorHandler('y,n 으로 입력해주세요.', input)){
+            return false
+        }
+        return true
     },
     checkInputBonusNumDuplicateWithWinNumbers(input, winningNumbers){
         return winningNumbers.includes(Number(input))
@@ -67,6 +84,7 @@ const InputValidator = {
         }
         return true
     },
+
     validateInputWinningNumbers(input){
         if(!this.validatorHandler('숫자와 (,)쉼표가 아닌 값이 입력되었습니다.', input)){
             return false

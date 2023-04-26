@@ -22,6 +22,10 @@ const constants = {
         2 : '낙첨 - 0원',
         1 : '낙첨 - 0원',
         0 : '낙첨 - 0원'
+    },
+    restart:{
+        'y': true,
+        'n': false,
     }
 
 }

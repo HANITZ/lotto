@@ -25,4 +25,8 @@ describe('InputValidator 테스트', ()=>{
     test('숫자가 아닌 값이 입력되었습니다.', ()=>{
         expect(InputValidator.checkNumber('1r')).toBe(false)
     })
+
+    test('y,n 이외의 값 입력', ()=>{
+        expect(InputValidator.checkYesOrNo('a')).toBe(false)
+    })
 })
