@@ -5,10 +5,10 @@ const rl = require('readline').createInterface({
     output: process.stdout,
 });
 
-const Console = {
+const rlconsole = {
     readLine(inputMessage) {
         return new Promise( resolve => {
-            rl.question(inputMessage, input => resolve(input))
+            rl.question(inputMessage, resolve)
         })
     },
     print(message){
@@ -19,5 +19,5 @@ const Console = {
     }
 }
 
-export default Console;
+export default rlconsole;
 

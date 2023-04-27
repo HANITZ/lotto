@@ -1,7 +1,7 @@
 import InputView from "../View/InputView";
 import InputValidator from "../Validator/InputValidator";
 import constants from "../Constants";
-import Console from "../util/Console";
+import rlconsole from "../util/Console";
 
 class LottoMachine {
     #winningNumbers
@@ -68,7 +68,7 @@ class LottoMachine {
 
     printWinnedLottos(tickets){
         tickets.forEach(([msg,winned,bonus])=>{
-            Console.print(msg)
+            rlconsole.print(msg)
         })
     }
 

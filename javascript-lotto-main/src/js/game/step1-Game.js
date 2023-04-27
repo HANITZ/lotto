@@ -1,7 +1,7 @@
 import TicketController from "../TicketController";
 import LottoMachine from "../Model/LottoMachine"
 import InputView from "../View/InputView";
-import Console from "../util/Console";
+import rlconsole from "../util/Console";
 import constants from "../Constants";
 import InputValidator from "../Validator/InputValidator";
 
@@ -24,7 +24,7 @@ const Game = () => {
         await this.start()
       }
       
-      Console.close()
+      rlconsole.close()
     },
     async gameRestart(){
       const input  = await InputView.inputRestart()

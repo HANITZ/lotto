@@ -1,5 +1,5 @@
 import constants from "../Constants"
-import Console from "../util/Console"
+import rlconsole from "../util/Console"
 
 
 const InputValidator = {
@@ -53,7 +53,7 @@ const InputValidator = {
                     return true
             }
         } catch (err) {
-            Console.print(err.message)
+            rlconsole.print(err.message)
             return false
         }
     },

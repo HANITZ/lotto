@@ -1,7 +1,7 @@
 import constants from "./Constants";
 import InputValidator from "./Validator/InputValidator";
 import InputView from "./View/InputView";
-import Console from "./util/Console";
+import rlconsole from "./util/Console";
 import Lotto from "./Model/Lotto";
 
 class TicketController {
@@ -32,7 +32,7 @@ class TicketController {
   }
   printTickets(tickets){
     tickets.forEach((ticket)=>{
-        Console.print(ticket.getLotto())
+        rlconsole.print(ticket.getLotto())
     })
   }
 }
