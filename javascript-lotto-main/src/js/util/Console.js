@@ -8,7 +8,7 @@ const rl = require('readline').createInterface({
 const rlconsole = {
     readLine(inputMessage) {
         return new Promise( resolve => {
-            rl.question(inputMessage, resolve)
+            rl.question(inputMessage, input => resolve(input.replaceAll(' ','')))
         })
     },
     print(message){
