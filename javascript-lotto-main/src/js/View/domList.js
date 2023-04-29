@@ -3,7 +3,7 @@ import { $ } from "../util/selector"
 
 const domList = {
     buyBtn : $('.buy-btn'),
-    moneyInput: $('.money-imput'),
+    moneyInput: $('.money-input'),
     moneyInputErrorText: $('.money-input-error-text'),
     mainContainer: $('.main-container'),    
 };
