@@ -14,9 +14,6 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".mjs", ".css"],
-    alias: {
-      '@lotto' : path.resolve(__dirname, 'src/js/')
-    }
   },
   module: {
     rules: [
