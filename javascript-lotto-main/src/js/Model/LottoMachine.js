@@ -1,7 +1,6 @@
 import InputView from "../View/InputView";
 import InputValidator from "../Validator/InputValidator";
 import constants from "../Constants";
-import rlconsole from "../util/Console";
 
 class LottoMachine {
     #winningNumbers
@@ -29,13 +28,48 @@ class LottoMachine {
         return this.#bonusNumber
     }
 
-    drawLottos(tickets){
+    drawLottos(win, bo, tickets){
+        this.#winningNumbers=win
+        this.#bonusNumber = bo
         const drawedTickets = tickets.map((ticket)=>{
             const [winned, bonus] = this.matchLottoWithMachine(ticket)
-            const winMessage = this.getWinMessage(winned, bonus)
-            return [winMessage,winned,bonus]
+            return [winned,bonus]
         })
-        return drawedTickets;
+        const ranks = this.getRanks(drawedTickets)
+        const profit = this.getProfit(ranks)
+        return {ranks,profit}
+    }
+    getRanks(drawedTickets){
+        const acc = new Array(6).fill(0)
+        drawedTickets.forEach(([win, bonus])=>{
+
+            if(win == 3){
+                acc[1]+=1
+            }else if(win ==4){
+                acc[2]+=1
+            }else if(win ==5){
+                if(bonus == 0){
+                    acc[3]+=1
+                }else{
+                    acc[4]+=1
+                }
+            }else if(win == 6){
+                acc[5]+=1
+            }else{
+                acc[0]+=1
+            }
+        })
+        return acc
+    }
+    getProfit(ranks){
+        let money = 0
+        money += ranks[1]*5000
+        money += ranks[2]*50000
+        money += ranks[3]*1500000
+        money += ranks[4]*30000000
+        money += ranks[5]*200000000
+        const numOfTicket = ranks.reduce((acc,num)=>acc+num,0)
+        return money/(numOfTicket*1000)*100
     }
     getWinMessage(winned, bonus){
         if(winned.length === 5){
@@ -50,25 +84,24 @@ class LottoMachine {
         return [numOfWin, numOfBonus]
     }
     matchLottoWithBonusNumber(ticket){
-        return ticket.getLotto().includes(this.#bonusNumber) ? this.#bonusNumber : 0
+        return ticket.getLotto().includes(this.#bonusNumber) ? 1 : 0
     }
     matchLottoWithWinNumbers(ticket){
         const numOfMatched = ticket.getLotto().reduce((acc, num)=>{
             for(let winNum of this.#winningNumbers){
                 if(winNum > num) return acc
-                if(winNum === num){
-                    acc.push(num)
+                if(Number(winNum) === num){
+                    acc+=1
                     return acc
                 }
             }
             return acc
-        }, new Array())
+        }, 0)
         return numOfMatched
     }
 
     printWinnedLottos(tickets){
         tickets.forEach(([msg,winned,bonus])=>{
-            rlconsole.print(msg)
         })
     }
 

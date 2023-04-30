@@ -1,7 +1,6 @@
 import constants from "./Constants";
 import InputValidator from "./Validator/InputValidator";
 import InputView from "./View/InputView";
-import rlconsole from "./util/Console";
 import Lotto from "./Model/Lotto";
 
 class TicketController {
@@ -17,7 +16,9 @@ class TicketController {
     }
     return this.inputMoney();
   }
-
+  takeTickets(){
+    return this.#tickets;
+  }
   getTickets(money) {
     let numberOfTickets = this.moneyToTicket(money);
     while (numberOfTickets > 0) {
@@ -32,7 +33,7 @@ class TicketController {
   }
   printTickets(tickets){
     tickets.forEach((ticket)=>{
-        rlconsole.print(ticket.getLotto())
+
     })
   }
 }
